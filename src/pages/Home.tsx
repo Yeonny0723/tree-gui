@@ -10,7 +10,7 @@ const Home: React.FC = () => {
     return (
     <>
         <Terminal tree={tree}/>
-        <Tree start="/" tree={tree['/']}/>
+        <Tree start="/" tree={tree['/']} linked={false}/>
     </>
     )
 }
