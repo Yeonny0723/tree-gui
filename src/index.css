@@ -3,11 +3,86 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Drawing Tree */
+:root{
+	--gap: 2em;
+	--neGap: -2em;
+}
+
+.tree {
+	text-align: center;
+}  
+
+.tree ul,
+.tree li {
+	position: relative;
+  	padding: 0;
+}
+
+.tree li {
+	display: table-cell;
+	padding: var(--gap) 0;
+}
+
+.tree li:before {
+	position: absolute;
+	outline: solid 1px #666;
+	content: "";
+	left: 0;
+	right: 0;
+	top: 0;
+}
+
+.tree li:first-child:before {
+  left: 50%;
+}
+
+.tree li:last-child:before {
+  right: 50%;
+}
+
+.tree ul:before,
+.tree span:before {
+  outline: solid 1px #666;
+  content: "";
+  height: var(--gap);
+  left: 50%;
+  position: absolute;
+}
+
+.tree ul:before {
+  	top: var(--neGap);
+}
+
+.tree span:before {
+  	top: var(--neGap);
+}
+
+.tree > li:before,
+.tree > li > span:before {
+  	outline: none;
+}
+
+.tree span {
+	border: solid 0.1em #666;
+	border-radius: 0.2em;
+	display: inline-block;
+	margin: 0 var(--gap) var(--gap);
+	padding: 10px 30px;
+	position: relative;
+}
+
+/* Formatting Tree */
+.directory {
+	background-color: #EEEEEE;
+}
+
+.file {
+	background-color: #B7B7B7;
+}
+
+.linked{
+	background-color: #01FFFF;
 }
