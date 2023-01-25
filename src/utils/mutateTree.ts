@@ -12,7 +12,7 @@ export const recursiveAddFile:I.IRecursiveaddFile = (fileTree, fileType, filePat
     const target = _.get(fileTree, pathSlice)
     if(target ===  undefined){  // 내부 {}에 이미 다른 노드 존재하여 target === undefined인 경우
       const newNode = {
-        type: i === filePathLst.length-1 ? fileType: S.DIRECTORY,
+        type: i === filePathLst.length ? fileType: S.DIRECTORY, // 마지막 노드
         hide: S.UNHIDE,
         link: "",
         next: {},
@@ -113,6 +113,11 @@ export const recursiveLink: I.ILink = (fileTree, referred, referring) => {
     const ans = window.confirm("파일이 서로를 연결하며 무한 심볼릭 루프가 생성됩니다. 원하시던 결과가 맞나요?")
     if (!ans) return 
   } 
+  recursiveAddFile(fileTree, referredNode.type, referring)
+  
   const referringNode = findFile(referring, fileTree)
   referringNode['link'] = referred
+
+  console.log(JSON.stringify(referringNode))
+  console.log(JSON.stringify(fileTree))
 }
