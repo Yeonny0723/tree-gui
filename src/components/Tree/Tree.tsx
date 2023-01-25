@@ -8,22 +8,34 @@ const Tree:React.FC<{start:string, tree:any}> = ({start, tree}) => {
     const fullState = useTreeSelector(state=>state.tree);
 
     return (
-        <ul style={{ paddingLeft: 10 }}>
-            <span>{start}</span>
-            {tree.hide ? <small>(hide)</small>: null}
-            {tree.type ? <small>({tree.type})</small>: null}
-            {tree.link ? <Tree start={tree.link.slice(-1)} tree={findFile(tree.link, JSON.stringify(fullState))}/> : null}
-            {children? 
-                Object.keys(children).map(k =>{
-                    if (typeof children[k] === 'object'){
-                        return (
-                            <li key={(Date.now()+Math.random()).toString()} style={{ paddingLeft: 10 }}>
-                                <Tree start={k} tree={children[k]}/>
-                            </li>
-                        )
-                    }
-                })
-            : <></>} 
+        <ul className={start === "/" ? "tree": undefined}>
+            <li>
+                <span className={
+                    tree.link ? "linked" : undefined
+                    // tree.type === "directory" ? "directory": "file"
+                    }>
+                    {start}
+                    {tree.hide ? "(hide)": null}
+                </span>
+                <ul>
+                {tree.link ? 
+                    <li>
+                        <Tree start={tree.link.slice(-1)} tree={findFile(tree.link, JSON.stringify(fullState))}/> 
+                    </li>
+                : null}
+                {children? 
+                    Object.keys(children).map(k =>{
+                        if (typeof children[k] === 'object'){
+                            return (
+                                <li key={(Date.now()+Math.random()).toString()}>
+                                    <Tree start={k} tree={children[k]}/>
+                                </li>
+                            )
+                        }
+                    })
+                : <></>} 
+                </ul>
+            </li>
         </ul>
     )
 }

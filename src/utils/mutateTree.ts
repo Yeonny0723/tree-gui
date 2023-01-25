@@ -14,6 +14,7 @@ export const recursiveAddFile:I.IRecursiveaddFile = (fileTree, fileType, filePat
       const newNode = {
         type: i === filePathLst.length-1 ? fileType: S.DIRECTORY,
         hide: S.UNHIDE,
+        link: "",
         next: {},
       }
       _.set(fileTree, [...pathSlice], newNode); 
@@ -23,6 +24,7 @@ export const recursiveAddFile:I.IRecursiveaddFile = (fileTree, fileType, filePat
       const newNode = {
         type: i === filePathLst.length-1 ? fileType: S.DIRECTORY,
         hide: S.UNHIDE,
+        link: "",
         next: {},
       }
       _.set(fileTree, [...pathSlice, filePathLst[i]], newNode); 
@@ -105,14 +107,12 @@ export const recursiveChange:I.IrecursiveChange = (fileTree, filePath, _hide)=> 
  */
 
 export const recursiveLink: I.ILink = (fileTree, referred, referring) => {
-  const referringNode = findFile(referring.slice(0,-2), fileTree)
   const referredNode = findFile(referred, fileTree)
-
+  
   if (referredNode.link === referring.slice(0,-2)){
     const ans = window.confirm("파일이 서로를 연결하며 무한 심볼릭 루프가 생성됩니다. 원하시던 결과가 맞나요?")
-    if (!ans){
-      return
-    }
+    if (!ans) return 
   } 
+  const referringNode = findFile(referring, fileTree)
   referringNode['link'] = referred
 }
