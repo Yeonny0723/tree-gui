@@ -1,3 +1,3 @@
-export type Tfile = "file" | "directory";
-
-export type Thide = true | false;
+// unused
+export type FileType = "file" | "directory"
+export type IsHidden = true | false
