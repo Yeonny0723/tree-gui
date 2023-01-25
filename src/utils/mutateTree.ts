@@ -114,10 +114,6 @@ export const recursiveLink: I.ILink = (fileTree, referred, referring) => {
     if (!ans) return 
   } 
   recursiveAddFile(fileTree, referredNode.type, referring)
-  
   const referringNode = findFile(referring, fileTree)
   referringNode['link'] = referred
-
-  console.log(JSON.stringify(referringNode))
-  console.log(JSON.stringify(fileTree))
 }

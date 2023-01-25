@@ -7,8 +7,8 @@ body {
 
 /* Drawing Tree */
 :root{
-	--gap: 2em;
-	--neGap: -2em;
+	--gap: 0.8em;
+	--neGap: -0.8em;
 }
 
 .tree {
