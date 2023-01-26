@@ -1,7 +1,8 @@
 # :: ThorDrive 트리 GUI 과제
 
 ## Demo
-<video src="https://github.com/Yeonny0723/tree-gui/issues/6#issue-1558209387"></video>
+https://user-images.githubusercontent.com/70524037/214858739-01d07ff8-870c-45fe-b395-2a34b454bd38.mp4
+
 
 ## 구현 기능
 
