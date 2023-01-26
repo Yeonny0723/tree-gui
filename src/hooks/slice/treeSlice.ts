@@ -4,52 +4,52 @@ import type { RootState } from '../../store/store'
 import { recursiveAddFile, deleteFile, recursiveLink, move, recursiveChange } from '../../utils/mutateTree'
 import { STATE_PROP as S } from '../../utils/constants'
 
-export const initialState = {
-  "/":{
-    type: S.DIRECTORY,
-    hide: S.UNHIDE,
-    link: "",
-    next: {}
-  }
-}
-
 // export const initialState = {
-//   "/": {
-//     type: S.DIRECTORY, 
+//   "/":{
+//     type: S.DIRECTORY,
 //     hide: S.UNHIDE,
 //     link: "",
-//     next: {
-//       type: S.DIRECTORY, 
-//       hide: S.UNHIDE,
-//       link: "",
-//       "2":{
-//         type: S.DIRECTORY, 
-//         hide: S.UNHIDE,
-//         link: "",
-//         next: {
-//           "4": {
-//             type: S.FILE, 
-//             hide: S.UNHIDE,
-//             link: "",
-//             next: {}
-//           },
-//           "6": {
-//             type: S.FILE, 
-//             hide: S.HIDE,
-//             link: "",
-//             next: {}
-//           }
-//       }
-//       },
-//       "7": {
-//       type: S.DIRECTORY, 
-//       hide: S.UNHIDE,
-//       link: "",
-//       next:{}
-//         }
-//   }
+//     next: {}
 //   }
 // }
+
+export const initialState = {
+  "/": {
+    type: S.DIRECTORY, 
+    hide: S.UNHIDE,
+    link: "",
+    next: {
+      type: S.DIRECTORY, 
+      hide: S.UNHIDE,
+      link: "",
+      "2":{
+        type: S.DIRECTORY, 
+        hide: S.UNHIDE,
+        link: "",
+        next: {
+          "4": {
+            type: S.FILE, 
+            hide: S.UNHIDE,
+            link: "",
+            next: {}
+          },
+          "6": {
+            type: S.FILE, 
+            hide: S.HIDE,
+            link: "",
+            next: {}
+          }
+      }
+      },
+      "7": {
+      type: S.DIRECTORY, 
+      hide: S.UNHIDE,
+      link: "",
+      next:{}
+        }
+  }
+  }
+}
 
 export const treeSlice = createSlice({
     name: "tree",

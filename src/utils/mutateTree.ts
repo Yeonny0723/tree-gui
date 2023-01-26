@@ -76,7 +76,7 @@ export const move:I.Imove = (fileTree, fromPath, toPath) => {
   deleteFile(fileTree, fromPath) // 이동 브랜치 삭제
   const filePathLst = toPath.replaceAll("/", "/next/").split("/")
   filePathLst[0] = '/' 
-  _.set(fileTree, [...filePathLst, "next"], {[fromPath.slice(-1)]: target}) // 이동할 브랜치로 삽입
+  _.set(fileTree, [...filePathLst, "next"], {[fromPath.split("/")[-1]]: target}) // 이동할 브랜치로 삽입
 }
 
 
@@ -109,7 +109,7 @@ export const recursiveChange:I.IrecursiveChange = (fileTree, filePath, _hide)=> 
 export const recursiveLink: I.ILink = (fileTree, referred, referring) => {
   const referredNode = findFile(referred, fileTree)
   
-  if (referredNode.link === referring.slice(0,-2)){
+  if (referredNode.link + referred === referring){
     const ans = window.confirm("파일이 서로를 연결하며 무한 심볼릭 루프가 생성됩니다. 원하시던 결과가 맞나요?")
     if (!ans) return 
   } 

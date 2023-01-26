@@ -18,7 +18,7 @@ const nonExistingCommand = "존재하지 않는 커맨드입니다"
 const invalidCommandFormat = "커맨드 형식이 옳지 않습니다"
 const fileDoesNotExist = "유효하지않은 파일 또는 폴더 주소입니다"
 const fileAlrdExists = "이미 존재하는 파일 또는 폴더명입니다"
-const addFileInFile = "이미 존재하는 파일 내 파일 또는 폴더를 추가할 수 없습니다"
+const addFileInFile = "파일 내 파일 또는 폴더를 추가할 수 없습니다"
 const canceled = "취소하였습니다"
 
 export const ERR_MSG = {

@@ -72,7 +72,7 @@ const validateCommand:IValidateCommand = (command, tree) => {
             }
 
             var [_referred, _referring] = extra; 
-            if (!findFile(_referred, tree) || !findFile(_referring.slice(0,-2), tree)){
+            if (!findFile(_referred, tree)){
                 message = ERR_MSG.fileDoesNotExist
                 return message
             }
