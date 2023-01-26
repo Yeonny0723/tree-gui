@@ -1,7 +1,7 @@
 // recursive component
-import classNames from "classnames";
 import { findFile } from "../../utils/mutateTree";
 import { useTreeSelector } from "../../hooks/store/treeStore";
+import { NodeStyle } from "../../styles/Home.styles";
 
 const Tree:React.FC<{start:string, tree:any, linked:boolean}> = ({start, tree, linked=false}) => {
 
@@ -11,20 +11,17 @@ const Tree:React.FC<{start:string, tree:any, linked:boolean}> = ({start, tree, l
     const _linked = tree.link ? true : false; // tree.link를 가진 부모의 직속 트리 구분 용도
 
     return (
-        <ul className={start === "/" ? "tree": undefined}>
+        <ul>
             {tree.link ? 
                 <li>
-                    <Tree linked={_linked} start={tree.link.slice(-1)} tree={findFile(tree.link, JSON.stringify(fullState))}/> 
+                    <Tree linked={_linked} start={(tree.link).split("/").slice(-1)} tree={findFile(tree.link, JSON.stringify(fullState))}/> 
                 </li>
             : 
                 <li>
-                    <span className={classNames(
-                        tree.type === "directory" ? "directory": "file",
-                        linked ? "linked" : undefined
-                        )}>
+                    <NodeStyle linked={linked} fileType={tree.type}>
                         {start}
                         {tree.hide ? "(hide)": null}
-                    </span>
+                    </NodeStyle>
                     <ul>
                     {children ? 
                         Object.keys(children).map(k =>{
@@ -45,3 +42,4 @@ const Tree:React.FC<{start:string, tree:any, linked:boolean}> = ({start, tree, l
 }
 
 export default Tree;
+

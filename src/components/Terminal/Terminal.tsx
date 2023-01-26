@@ -2,6 +2,7 @@ import { useRef, useState, useEffect} from "react";
 import { useTreeDispatch } from '../../hooks/store/treeStore'
 import {actions} from "../../hooks/slice/treeSlice"
 import validateCommand from "../../utils/checkCommand";
+import { FormStyle } from "../../styles/Terminal.styles";
 
 const Terminal:React.FC<{tree:any}> = ({tree}) => {
 
@@ -37,11 +38,13 @@ const Terminal:React.FC<{tree:any}> = ({tree}) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input type="text" ref={commandRef}/>
-            <input type="button" value="Run"/>
+        <FormStyle onSubmit={handleSubmit}>
+            <div>
+                <input type="text" ref={commandRef} placeholder="Enter command here"/>
+                <input type="button" value="Run"/>
+            </div>
             <span>{message}</span>
-        </form >
+        </FormStyle >
     )
 }
 
