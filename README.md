@@ -1,21 +1,7 @@
 # :: ThorDrive 트리 GUI 과제
 
-## 디렉토리 구조
-
-```
-📦
-├─ public
-└─ src
-   ├─ components // 페이지를 구성하는 컴포넌트
-   │  ├─ Terminal
-   │  └─ Tree
-   ├─ hook // 상태 관리 훅
-   ├─ page // 페이지 컴포넌트
-   ├─ route // 라우트
-   ├─ style // 스타일링
-   └─ utils // 비즈니스 로직 관리
-
-```
+## Demo
+<video src="https://github.com/Yeonny0723/tree-gui/issues/6#issue-1558209387"></video>
 
 ## 구현 기능
 
@@ -41,6 +27,23 @@
    -  [x] 파일 업데이트 시 경로에 모든 파일이 업데이트됨을 체크
 -  그래프 트리
    -  [x] 깊이를 알 수 없는 컴포넌트 recursive 렌더링
+
+## 디렉토리 구조
+
+```
+📦
+├─ public
+└─ src
+   ├─ components // 페이지를 구성하는 컴포넌트
+   │  ├─ Terminal
+   │  └─ Tree
+   ├─ hook // 상태 관리 훅
+   ├─ page // 페이지 컴포넌트
+   ├─ route // 라우트
+   ├─ style // 스타일링
+   └─ utils // 비즈니스 로직 관리
+
+```
 
 ## 실행
 
