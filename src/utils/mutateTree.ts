@@ -109,7 +109,9 @@ export const recursiveChange: I.IrecursiveChange = (fileTree, filePath, _hide) =
 export const recursiveLink: I.ILink = (fileTree, referred, referring) => {
    const referredNode = findFile(referred, fileTree);
 
-   if (confirmFn(CONFIRM_MSG.symbolicLoopWarning)) return;
+   if (referredNode.link === referring.slice(0, -2)) {
+      if (confirmFn(CONFIRM_MSG.symbolicLoopWarning)) return;
+   }
 
    recursiveAddFile(fileTree, referredNode.type, referring);
    const referringNode = findFile(referring, fileTree);
