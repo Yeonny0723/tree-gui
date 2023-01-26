@@ -1,46 +1,69 @@
-# Getting Started with Create React App
+# :: ThorDrive 트리 GUI 과제
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 구현 기능
 
-## Available Scripts
+-  인풋 터미널
+   -  add
+   -  [x] 커맨드 패턴 체크
+   -  [x] 추가하려는 파일 존재 여부 체크
+   -  [x] 존재하지 않는 경로에 파일 추가시, 경로에 모든 파일이 추가됨 체크
+   -  [x] 파일 내 파일/폴더 추가할 수 없도록 메시지
+   -  delete
+   -  [x] 커맨드 패턴 체크
+   -  [x] 삭제하려는 파일 존재 여부 체크
+   -  [x] 파일 삭제시 경로에 모든 파일이 삭제됨 체크
+   -  link
+   -  [x] 커맨드 패턴 체크
+   -  [x] 연결하려는 파일 존재 여부 체크
+   -  move
+   -  [x] 커맨드 패턴 체크
+   -  [x] 이동하려는 파일 존재 여부 체크
+   -  chage
+   -  [x] 커맨드 패턴 체크
+   -  [x] 수정하려는 파일 존재 여부 체크
+   -  [x] 파일 업데이트 시 경로에 모든 파일이 업데이트됨을 체크
+-  그래프 트리
+   -  [x] 깊이를 알 수 없는 컴포넌트 recursive 렌더링
 
-In the project directory, you can run:
+## 실행
 
-### `npm start`
+```bash
+> yarn start
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+> npm run start
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 테스팅 인풋
 
-### `npm test`
+위 구현 기능을 모두 테스트 해보기 위한 테스팅 인풋입니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-  요구사항 인풋
 
-### `npm run build`
+```bash
+    add directory /a
+    add directory /b/a/c
+    add file /b/b/k
+    add file /b/b/m
+    link /a /b/a/c/a
+    move /b/b/m /a
+    change /b/b hide
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-  이어진 추가 테스팅 인풋
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+    hello
+    > 존재하지 않는 커맨드입니다
+    add dir /a
+    > 커맨드 형식이 옳지 않습니다
+    add file a
+    > 커맨드 형식이 옳지 않습니다
+    add file /a/m/k
+    > 파일 내 파일 또는 폴더를 추가할 수 없습니다
+    add file /a/m
+    이미 존재하는 파일 또는 폴더명입니다
+    delete /k
+    > 유효하지않은 파일 또는 폴더 주소입니다
+```
