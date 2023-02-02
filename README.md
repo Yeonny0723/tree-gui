@@ -2,18 +2,16 @@
 
 ## 프로젝트 한줄 설명
 
-유저 입력 커맨드에 따라 트리 그래프를 렌더링하는 GUI 애플리케이션입니다. 대표적으로 add, delete, move, change, link 다섯까지 액션을 조작합니다. 
-•	add: 파일 및 폴더 추가 
-•	delete: 파일 및 폴더 삭제 
-•	move: 파일 및 폴더 이동
-•	change: 파일 및 폴더 변경
-•	link: 두 경로를 잇는 심볼릭 링크 생성
-
+유저 입력 커맨드에 따라 트리 그래프를 렌더링하는 GUI 애플리케이션입니다. 대표적으로 add, delete, move, change, link 다섯까지 액션을 조작합니다.
+• add: 파일 및 폴더 추가
+• delete: 파일 및 폴더 삭제
+• move: 파일 및 폴더 이동
+• change: 파일 및 폴더 변경
+• link: 두 경로를 잇는 심볼릭 링크 생성
 
 ## Demo
 
 https://user-images.githubusercontent.com/70524037/214858739-01d07ff8-870c-45fe-b395-2a34b454bd38.mp4
-
 
 ## 구현 기능
 
@@ -40,7 +38,6 @@ https://user-images.githubusercontent.com/70524037/214858739-01d07ff8-870c-45fe-
 -  그래프 트리
    -  [x] 깊이를 알 수 없는 컴포넌트 recursive 렌더링
 
-
 ## 프로젝트 폴더 설명
 
 ```
@@ -58,7 +55,6 @@ https://user-images.githubusercontent.com/70524037/214858739-01d07ff8-870c-45fe-
 
 ```
 
-
 ## 실행
 
 ```bash
@@ -71,12 +67,10 @@ https://user-images.githubusercontent.com/70524037/214858739-01d07ff8-870c-45fe-
 > npm run start
 ```
 
-
 # 가정
 
-재귀적으로* 발생할 수 있는 add, delete, change와 같은 커맨드에는 유저에게 한번 더 확인을 받도록 개발하였습니다. 
+재귀적으로* 발생할 수 있는 add, delete, change와 같은 커맨드에는 유저에게 한번 더 확인을 받도록 개발하였습니다.
 (*재귀적이란? 하위 경로 내 파일에도 동시 적용될 수 있음을 의미합니다)
-
 
 ## 테스팅 인풋
 
