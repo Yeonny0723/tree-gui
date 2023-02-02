@@ -19,16 +19,16 @@ const validateCommand: IValidateCommand = (command, tree) => {
    const extra = commandSplitted.slice(1);
 
    switch (action) {
-      case 'add':
+      case 'add': {
          if (!PATTERN.reAddPattern.test(command)) {
             // 패턴 체크
-            message = ERR_MSG.invalidCommandFormat;
-            return message;
+            const _message = ERR_MSG.invalidCommandFormat;
+            return _message;
          }
-         var [_fileType, _newFile] = extra; // 파일 존재 여부 체크
+         const [_fileType, _newFile] = extra; // 파일 존재 여부 체크
          if (findFile(_newFile, tree)) {
-            message = ERR_MSG.fileAlrdExists;
-            return message;
+            const _message = ERR_MSG.fileAlrdExists;
+            return _message;
          } else {
             // 파일 연쇄 생성 컨펌
             const _message = confirmFn(CONFIRM_MSG.confirmRecurringAdd);
@@ -40,14 +40,14 @@ const validateCommand: IValidateCommand = (command, tree) => {
             return message;
          }
          return message;
-
-      case 'delete':
+      }
+      case 'delete': {
          if (!PATTERN.reDeletePattern.test(command)) {
             // 패턴 체크
             message = ERR_MSG.invalidCommandFormat;
             return message;
          }
-         var [_filePath] = extra;
+         const [_filePath] = extra;
          if (!findFile(_filePath, tree)) {
             // 파일 존재 여부 체크
             message = ERR_MSG.fileDoesNotExist;
@@ -58,41 +58,41 @@ const validateCommand: IValidateCommand = (command, tree) => {
             if (_message) return _message;
          }
          return message;
-
-      case 'link':
+      }
+      case 'link': {
          if (!PATTERN.reLinkPattern.test(command)) {
             // 패턴 체크
             message = ERR_MSG.invalidCommandFormat;
             return message;
          }
-         var [_referred, _referring] = extra; // 파일 존재 여부 체크
+         const [_referred, _referring] = extra; // 파일 존재 여부 체크
          if (!findFile(_referred, tree)) {
             message = ERR_MSG.fileDoesNotExist;
             return message;
          }
          return message;
-
-      case 'move':
+      }
+      case 'move': {
          if (!PATTERN.reMovePattern.test(command)) {
             // 패턴 체크
             message = ERR_MSG.invalidCommandFormat;
             return message;
          }
-         var [_pathFrom, _pathTo] = extra;
+         const [_pathFrom, _pathTo] = extra;
          if (!findFile(_pathFrom, tree) || !findFile(_pathTo, tree)) {
             // 파일 존재 여부 체크
             message = ERR_MSG.fileDoesNotExist;
             return message;
          }
          return message;
-
-      case 'change':
+      }
+      case 'change': {
          if (!PATTERN.reChangePattern.test(command)) {
             // 패턴 체크
             message = ERR_MSG.invalidCommandFormat;
             return message;
          }
-         var [_filePath, hide] = extra; // 파일 존재 여부 체크
+         const [_filePath, hide] = extra; // 파일 존재 여부 체크
          if (!findFile(_filePath, tree)) {
             message = ERR_MSG.fileDoesNotExist;
             return message;
@@ -102,7 +102,7 @@ const validateCommand: IValidateCommand = (command, tree) => {
             if (_message) return _message;
          }
          return message;
-
+      }
       default:
          message = ERR_MSG.nonExistingCommand;
          return message;
